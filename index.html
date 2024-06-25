@@ -458,7 +458,7 @@
 
   <script>
     const mainTabs = document.querySelectorAll('#mainTabs .tab');
-    const subTabs = document.querySelectorAll('.tabs:not(#mainTabs) .tab'); 
+    const subTabs = document.querySelectorAll('.tabs:not(#mainTabs) .tab');
     const tabContents = document.querySelectorAll('.tab-content');
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
@@ -472,7 +472,7 @@
 
       text.split('\n').forEach(line => {
         const [productName, available] = line.split(' = ');
-        productsData[productName] = available === 'True';
+        productsData[productName] = available.trim() === 'True'; // Добавляем trim()
       });
 
       for (const productName in productsData) {
