@@ -82,7 +82,7 @@
       padding: 12px 25px;
       border: none;
       cursor: pointer;
-      background-color: #1f1f1f;
+      background-color: #1f1f1f; 
       color: #eee;
       font-weight: 700;
       transition: background-color 0.3s ease, color 0.3s ease;
@@ -90,12 +90,12 @@
     }
 
     .tab:hover {
-      background-color: #292929;
+      background-color: #292929; 
       color: white;
     }
 
     .tab.active {
-      background-color: #c0392b;
+      background-color: #c0392b; 
       color: white;
     }
 
@@ -472,7 +472,7 @@
 
       text.split('\n').forEach(line => {
         const [productName, available] = line.split(' = ');
-        productsData[productName] = available.trim() === 'True'; // Добавляем trim()
+        productsData[productName] = available.trim() === 'True'; 
       });
 
       for (const productName in productsData) {
@@ -486,8 +486,9 @@
         }
       }
     }
+    // --- Функция для проверки наличия товара ---
 
-    checkProductAvailability();
+    checkProductAvailability(); // Вызываем при загрузке страницы
 
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
@@ -510,6 +511,9 @@
         tab.classList.add('active');
         const targetTabContent = document.getElementById(tab.dataset.target);
         targetTabContent.classList.add('active');
+
+        // Вызываем checkProductAvailability при переключении вкладок
+        checkProductAvailability(); 
 
         const firstSubTab = targetTabContent.querySelector('.tabs .tab');
         if (firstSubTab) {
@@ -557,4 +561,3 @@
   </script>
 </body>
 </html>
-
