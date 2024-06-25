@@ -1,3 +1,0 @@
-BrawlPassPlus = True
-30Gems = False
-TelegramPremium = False
