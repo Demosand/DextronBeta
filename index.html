@@ -458,36 +458,11 @@
 
   <script>
     const mainTabs = document.querySelectorAll('#mainTabs .tab');
-    const subTabs = document.querySelectorAll('.tabs:not(#mainTabs) .tab'); 
+    const subTabs = document.querySelectorAll('.tabs:not(#mainTabs) .tab');
     const tabContents = document.querySelectorAll('.tab-content');
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
     const searchInput = document.getElementById('searchInput');
-
-    // --- Функция для проверки наличия товара ---
-    async function checkProductAvailability() {
-      const response = await fetch('products.txt');
-      const text = await response.text();
-      const productsData = {};
-
-      text.split('\n').forEach(line => {
-        const [productName, available] = line.split(' = ');
-        productsData[productName] = available === 'True';
-      });
-
-      for (const productName in productsData) {
-        const productElement = document.getElementById(`${productName}Product`);
-        if (productElement) {
-          if (productsData[productName]) {
-            productElement.classList.remove('out-of-stock');
-          } else {
-            productElement.classList.add('out-of-stock');
-          }
-        }
-      }
-    }
-
-    checkProductAvailability();
 
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
@@ -505,12 +480,16 @@
     // Обработчик для главных вкладок (Telegram/Brawl Stars)
     mainTabs.forEach(tab => {
       tab.addEventListener('click', () => {
+        // Скрываем все tab-content
         tabContents.forEach(content => content.classList.remove('active'));
+        // Снимаем активный класс со всех главных вкладок
         mainTabs.forEach(t => t.classList.remove('active'));
+        // Активируем выбранную вкладку и ее контент
         tab.classList.add('active');
         const targetTabContent = document.getElementById(tab.dataset.target);
         targetTabContent.classList.add('active');
 
+        // Активируем первую вложенную вкладку
         const firstSubTab = targetTabContent.querySelector('.tabs .tab');
         if (firstSubTab) {
           firstSubTab.click();
