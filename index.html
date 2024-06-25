@@ -288,7 +288,7 @@
     .sidebar img {
       display: block;
       margin: 0 auto;
-      width: 70px; /* Увеличенный размер логотипа */
+      width: 70px; 
       height: auto;
     }
 
@@ -302,8 +302,9 @@
     }
 
     .product.out-of-stock {
-      opacity: 0.5; /* Полупрозрачный товар */
-      position: relative; /* Для позиционирования текста "Нет в наличии" */
+      opacity: 0.5;
+      position: relative;
+      cursor: default; /* Курсор по умолчанию */
     }
 
     .product.out-of-stock::before {
@@ -315,6 +316,11 @@
       color: red;
       font-weight: bold;
       font-size: 1.2em;
+    }
+
+    .product.out-of-stock:hover {
+      transform: none; /* Отключаем анимацию подъема */
+      box-shadow: none; /* Отключаем тень */
     }
   </style>
 </head>
@@ -533,6 +539,11 @@
 
     products.forEach(product => {
       product.addEventListener('click', () => {
+
+        if (product.classList.contains('out-of-stock')) {
+          return;
+        }
+
         const productId = product.dataset.target;
         const productPage = document.getElementById(productId);
         productPage.style.display = 'block';
