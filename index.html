@@ -511,17 +511,22 @@
       // Проверка доступности товара
       if (!product.available) {
         productDiv.classList.add('out-of-stock');
-      } else {
-        // Добавляем обработчик события click только если товар доступен
-        productDiv.addEventListener('click', () => {
-          const productId = productDiv.dataset.target;
-          const productPage = document.getElementById(productId);
-          productPage.style.display = 'block';
-          setTimeout(() => {
-            productPage.classList.add('active');
-          }, 10);
-        });
-      }
+      } 
+
+      // Обработчик клика добавляется ко всем товарам
+      productDiv.addEventListener('click', () => {
+        // Проверка доступности товара
+        if (productDiv.classList.contains('out-of-stock')) {
+          return;
+        }
+
+        const productId = productDiv.dataset.target;
+        const productPage = document.getElementById(productId);
+        productPage.style.display = 'block';
+        setTimeout(() => {
+          productPage.classList.add('active');
+        }, 10);
+      });
 
       return productDiv;
     }
@@ -597,18 +602,6 @@
 
         tab.classList.add('active');
         document.getElementById(tab.dataset.target).classList.add('active');
-      });
-    });
-
-    products.forEach(product => {
-      product.addEventListener('click', () => {
-
-        const productId = product.dataset.target;
-        const productPage = document.getElementById(productId);
-        productPage.style.display = 'block';
-        setTimeout(() => {
-          productPage.classList.add('active');
-        }, 10);
       });
     });
 
