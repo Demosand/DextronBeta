@@ -65,17 +65,16 @@
       color: #888;
     }
 
-    /* Улучшенные стили для вкладок */
     .tabs {
       display: flex;
-      flex-wrap: wrap; /* Позволяет вкладкам переноситься на новую строку */
+      flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 30px;
-      justify-content: center; /* Центрируем вкладки */
+      justify-content: center; 
     }
 
     .tab {
-      padding: 10px 15px; /* Уменьшаем отступы */
+      padding: 10px 15px; 
       border: none;
       border-radius: 5px;
       background-color: #262626;
@@ -84,7 +83,7 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
       text-align: center;
-      white-space: nowrap; /* Предотвращает перенос текста внутри вкладки */
+      white-space: nowrap; 
     }
 
     .tab:hover {
@@ -96,18 +95,17 @@
       color: #fff;
     }
 
-    /* Стили для кнопки "Отзывы" с эффектом */
     .tab.reviews { 
       background: linear-gradient(to right, #673ab7, #9c27b0);
       color: white;
       box-shadow: 0 4px 8px rgba(156, 39, 176, 0.5);
-      transition: transform 0.2s ease, box-shadow 0.2s ease; /* Добавляем transition */
+      transition: transform 0.2s ease, box-shadow 0.2s ease; 
     }
 
     .tab.reviews:hover {
       background: linear-gradient(to right, #9c27b0, #673ab7);
       box-shadow: 0 6px 12px rgba(156, 39, 176, 0.7);
-      transform: scale(1.05); /* Добавляем эффект масштабирования */
+      transform: scale(1.05); 
     }
 
     .tab-content {
@@ -148,7 +146,6 @@
       align-items: center;
     }
 
-    /* Делаем название Brawl Pass+ (СКИДКА 5%) красным */
     #brawlPassPlusProduct h2 {
       color: #f44336;
     }
@@ -172,7 +169,6 @@
       line-height: 1.6;
     }
 
-    /* Модальное окно для товара */
     .product-page {
       display: none;
       position: fixed;
@@ -310,7 +306,6 @@
       color: white;
     }
 
-    /* Убираем подчеркивание у ссылки */
     a {
       text-decoration: none; 
     }
@@ -449,7 +444,7 @@
             </div>
             <div class="product" data-target="product-page-brawlstars-pass-upgrade" id="brawlPassUpgradeProduct">
               <h2>
-                <img src="videos/BrawlPass.png" alt="Brawl Pass">
+                <img src="videos/BrawlPassUP.png" alt="Brawl Pass Upgrade"> 
                 Улучшение Brawl Pass >>> Brawl Pass Plus
               </h2>
               <div class="price">399 рублей</div>
@@ -704,11 +699,11 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img src="videos/brawlpassUP.png" alt="Brawl Pass"> 
+        <img src="videos/BrawlPassUP.png" alt="Brawl Pass Upgrade">
         Улучшение Brawl Pass >>> Brawl Pass Plus
       </h2>
       <p>🛍️Улучшение Brawl Pass до Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-     <a href="https://t.me/m/aLqwRSKzYTc6" class="buy-button">
+      <a href="https://t.me/m/aLqwRSKzYTc6" class="buy-button">
         <video autoplay muted loop>
           <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
